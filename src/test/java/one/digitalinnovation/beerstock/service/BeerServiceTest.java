@@ -126,7 +126,7 @@ public class BeerServiceTest {
         assertThat(foundListBeersDTO.get(0), is(equalTo(expectedFoundBeerDTO)));
     }
 
-    @Test
+    @Test //retornar uma lista vazia
     void whenListBeerIsCalledThenReturnAnEmptyListOfBeers() {
         //when
         when(beerRepository.findAll()).thenReturn(Collections.EMPTY_LIST);
@@ -137,7 +137,7 @@ public class BeerServiceTest {
         assertThat(foundListBeersDTO, is(empty()));
     }
 
-    @Test
+    @Test //quando é chamado uma cerveja para ser excluido
     void whenExclusionIsCalledWithValidIdThenABeerShouldBeDeleted() throws BeerNotFoundException{
         // given
         BeerDTO expectedDeletedBeerDTO = BeerDTOBuilder.builder().build().toBeerDTO();

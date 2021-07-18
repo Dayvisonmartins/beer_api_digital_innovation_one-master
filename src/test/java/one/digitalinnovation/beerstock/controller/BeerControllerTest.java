@@ -118,7 +118,7 @@ public class BeerControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-    @Test
+    @Test //quando a lista de cerveja é chamada
     void whenGETListWithBeersIsCalledThenOkStatusIsReturned() throws Exception {
         // given
         BeerDTO beerDTO = BeerDTOBuilder.builder().build().toBeerDTO();
@@ -135,7 +135,7 @@ public class BeerControllerTest {
                 .andExpect(jsonPath("$[0].type", is(beerDTO.getType().toString())));
     }
 
-    @Test
+    @Test // chama metodo de lista
     void whenGETListWithoutBeersIsCalledThenOkStatusIsReturned() throws Exception {
         // given
         BeerDTO beerDTO = BeerDTOBuilder.builder().build().toBeerDTO();
@@ -149,7 +149,7 @@ public class BeerControllerTest {
                 .andExpect(status().isOk());
     }
 
-    @Test
+    @Test //chamar o metodo delete
     void whenDELETEIsCalledWithValidIdThenNoContentStatusIsReturned() throws Exception {
         // given
         BeerDTO beerDTO = BeerDTOBuilder.builder().build().toBeerDTO();
